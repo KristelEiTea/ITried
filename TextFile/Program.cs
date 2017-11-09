@@ -54,7 +54,6 @@ namespace System.IO
 
         }
 
-        //VIGANE AS FUCK, AGA KELL ON JUBA PALJU
         public static void KustutaFail()
         {
             Console.WriteLine("Type the path (including txt file name):");
