@@ -12,10 +12,9 @@ namespace System.IO
         static void Main(string[] args)
         {
             beginning:
-            Console.WriteLine("To see the excisting notes, type the path: ");
-            path = Console.ReadLine();
+            path = @"D:\#RandomThings\C#\";
             string[] files = Directory.GetFiles(path, "*.txt", SearchOption.AllDirectories);
-            Console.WriteLine("The excisting notes in that folder are: ");
+            Console.WriteLine("The excisting notes in the note folder are: ");
             foreach (string fa in files)
             {
                 Console.WriteLine(fa);
@@ -56,19 +55,18 @@ namespace System.IO
 
         public static void KustutaFail()
         {
-            Console.WriteLine("Type the path (including txt file name):");
-            Console.WriteLine("For example: D:/#RandomThings/C#/FILENAME.txt");
-            Console.WriteLine("The slashes must be the other way!");
-            string path2 = Console.ReadLine();
+            Console.WriteLine("Type the note name.");
+            string path3 = Console.ReadLine();
+            string path2 = path + path3 + ".txt";
             File.Delete(path2);
             Console.WriteLine("Note deleted.");
         }
 
         public static void LoeFaili()
         {
-            Console.WriteLine("Type the path (including txt file name):");
-            Console.WriteLine("For example: D:/#RandomThings/C#/FILENAME.txt");
-            string path2 = Console.ReadLine();
+            Console.WriteLine("Type the note name.");
+            string path3 = Console.ReadLine();
+            string path2 = path + path3 + ".txt";
             string text = File.ReadAllText(path2);
             Console.WriteLine("The note says: ");
             Console.WriteLine(text);
@@ -77,14 +75,12 @@ namespace System.IO
 
         public static void LisaFail()
         {
-            Console.WriteLine("Type the path (including txt file name):");
-            Console.WriteLine("For example: D:/#RandomThings/C#/FILENAME.txt");
-            Console.WriteLine("The slashes must be the other way!");
-            string path2 = Console.ReadLine();
+            Console.WriteLine("Name the new note.");
+            string path3 = Console.ReadLine();
+            string path2 = path + path3 + ".txt";
             Console.WriteLine("*Path check*");
             Console.WriteLine(path2);
-            Console.WriteLine("Type the txt file name again");
-            File.Create(Console.ReadLine());
+            File.Create(path3);
             Console.WriteLine("Type the note:");
             string tekst = Console.ReadLine();
             File.AppendAllText(path2, tekst);
